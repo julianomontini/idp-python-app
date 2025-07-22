@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idp-python-app
+  labels:
+    app: idp-python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: idp-python-app
+  template:
+    metadata:
+      labels:
+        app: idp-python-app
+    spec:
+      containers:
+      - name: idp-python-app
+        image: julianomontini/idp-python-app:1.0
+        ports:
+        - containerPort: 5000
